@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>sectionProducts</name>
+   <tag></tag>
+   <elementGuidId>75e96316-30be-4fc9-b840-e2d990e6eed0</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//section[@id='products']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>section#products</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//section[@id='products']</value>
+   </webElementProperties>
+</WebElementEntity>

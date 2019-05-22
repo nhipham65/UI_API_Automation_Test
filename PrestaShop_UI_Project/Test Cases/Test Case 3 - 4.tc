@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Test Case 3 - 4</name>
+   <tag></tag>
+   <comment>VERIFY TEST CASE 3
+VERIFY TEST CASE 4</comment>
+   <testCaseGuid>f8e90e8a-9243-4506-b0d3-3995eb4c1dac</testCaseGuid>
+   <variable>
+      <defaultValue>'mug'</defaultValue>
+      <description></description>
+      <id>46ed73be-25d5-41d3-be42-c99923fe919a</id>
+      <masked>false</masked>
+      <name>searchText</name>
+   </variable>
+</TestCaseEntity>
