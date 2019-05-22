@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Prestashop's URL to acess the web site</description>
+      <initValue>'http://demo.prestashop.com'</initValue>
+      <name>baseURLTest</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>
