@@ -1,0 +1,2 @@
+baseurl,name,username,email,address,street,suite,city,zipcode,geo,lat,lng
+https://jsonplaceholder.typicode.com,Nhi Pham,nhipham65,nhipham65@spambox.xyz,Viet Nam,Tran Hung Dao,Phuong 2,Ho Chi Minh,70000,Geo test 1,Lat 1,Lng 1

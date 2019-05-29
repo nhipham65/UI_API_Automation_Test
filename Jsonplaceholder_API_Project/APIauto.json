@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "392418f8-b8bf-4e3e-972c-9314f428d774",
+		"name": "Jsonplaceholder_API_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TS.User",
+			"item": [
+				{
+					"name": "TC1.CreateUser",
+					"item": [
+						{
+							"name": "TC1.VerifyCreateUserSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "be0e37b6-d4ec-43d9-be78-03fa67c2984d",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});",
+											"pm.test(\"Status code name is created\", function () {",
+											"    pm.response.to.have.status(\"Created\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"   ",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3a8e6eff-b764-4f78-9056-797db3e194da",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{tc1name}}\",\n    \"username\": \"{{tc1username}}\",\n    \"email\": \"{{tc1email}}\",\n    \"address\": {\n        \"street\": \"{{tc1street}}\",\n        \"suite\": \"{{tc1suite}}\",\n        \"city\": \"{{tc1city}}\",\n        \"zipcode\": \"{{tc1zipcode}}\",\n        \"geo\": {\n            \"lat\": \"{{tc1lat}}\",\n            \"lng\": \"{{tc1lng}}\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/users",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "TS.Posts",
+			"item": [
+				{
+					"name": "TC2.CreatPosts",
+					"item": [
+						{
+							"name": "TC2.VerifyUserCreatePostSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a87a5717-b1a8-4db4-a81f-2ec8de4da916",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});",
+											"pm.test(\"Status code name is created\", function () {",
+											"    pm.response.to.have.status(\"Created\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"title\");",
+											"   ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": {{tc2id}},\n    \"title\": \"{{tc2title}}\",\n    \"body\": \"{{tc2body}}\"\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/posts",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC3.GetAllPosts",
+					"item": [
+						{
+							"name": "TC3.VerifyUserGetAllPostSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cfb5c8cd-47b7-489c-abda-5b4bfbbfc29a",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful GET request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"userId\");",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"    pm.expect(pm.response.text()).to.include(\"title\");",
+											"    ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/posts",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC4.UpdatePosts",
+					"item": [
+						{
+							"name": "TC4.VerifyUserUpdatePostsSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5763e938-041b-449a-9f9a-ee9bd9b24ab9",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"title\");",
+											"    pm.expect(pm.response.text()).to.include(\"body\");",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"    ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"{{tc4title}}\",\r\n  \"body\": \"{{tc4body}}\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/posts/{{tc4postid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"posts",
+										"{{tc4postid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC5.DeletePosts",
+					"item": [
+						{
+							"name": "TC5.VerifyDeletePostSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "61e44ec8-96d3-4d4a-b603-ab958b739e0a",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful DELETE request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/posts/{{tc5postid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"posts",
+										"{{tc5postid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "TS.Comments",
+			"item": [
+				{
+					"name": "TC6.GetAllComments",
+					"item": [
+						{
+							"name": "TC6.VerifyGetAllCommentsSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "aceee1e0-137b-43ea-9583-a28ea0b4b9e4",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful GET request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"postId\");",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"    pm.expect(pm.response.text()).to.include(\"name\");",
+											"    pm.expect(pm.response.text()).to.include(\"email\");",
+											"    pm.expect(pm.response.text()).to.include(\"body\");",
+											"    ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/comments",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC7.GetCommentfromSpecificPost",
+					"item": [
+						{
+							"name": "TC7.VerifyGetCommentsfromSpecificPost",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "481c110f-55d2-419a-aab3-3bff6239e40f",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful GET request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"postId\");",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"    pm.expect(pm.response.text()).to.include(\"name\");",
+											"    pm.expect(pm.response.text()).to.include(\"email\");",
+											"    pm.expect(pm.response.text()).to.include(\"body\");",
+											"    ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/comments?postId={{tc7postid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"comments"
+									],
+									"query": [
+										{
+											"key": "postId",
+											"value": "{{tc7postid}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC8.CreateCommentunderSpecificPost",
+					"item": [
+						{
+							"name": "TC8.VerifyUserCreateCommentUnderSpecificPostSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cae2fba8-399c-421c-8c28-b64dc77950c3",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});",
+											"pm.test(\"Status code name is created\", function () {",
+											"    pm.response.to.have.status(\"Created\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"name\");",
+											"    pm.expect(pm.response.text()).to.include(\"email\");",
+											"    pm.expect(pm.response.text()).to.include(\"body\");",
+											"   ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{tc8name}}\",\n    \"email\": \"{{tc8email}}\",\n    \"body\": \"{{tc8body}}\"\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/comments?postId={{tc8postid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"comments"
+									],
+									"query": [
+										{
+											"key": "postId",
+											"value": "{{tc8postid}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC9.UpdateComments",
+					"item": [
+						{
+							"name": "TC9.VerifyUserUpdateCommentsSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e6fbd62-5ba4-4c9c-9634-c30eb25231bc",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful PATCH request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});",
+											"",
+											"//Verify Response Body returns correctly result",
+											"pm.test(\"Response must be valid and have a body\", function () {",
+											"    pm.response.to.be.withBody",
+											"    pm.expect(pm.response.text()).to.include(\"postId\");",
+											"    pm.expect(pm.response.text()).to.include(\"id\");",
+											"    pm.expect(pm.response.text()).to.include(\"name\");",
+											"    pm.expect(pm.response.text()).to.include(\"email\");",
+											"    pm.expect(pm.response.text()).to.include(\"body\");",
+											"   ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n  \"name\": \"{{tc9name}}\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/comments/{{tc9commentid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"comments",
+										"{{tc9commentid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC10.DeleteComments",
+					"item": [
+						{
+							"name": "TC10.VerifyUserDeleteCommentsSuccess",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dda74b05-724b-43c4-8bb1-d15d69ed3e26",
+										"exec": [
+											"// Verify Status Code returns correctly",
+											"pm.test(\"Successful PATCH request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"pm.test(\"Status code name is OK\", function () {",
+											"    pm.response.to.have.status(\"OK\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/comments/{{tc10commentid}}",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"comments",
+										"{{tc10commentid}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
