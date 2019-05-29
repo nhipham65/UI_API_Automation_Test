@@ -1,0 +1,2 @@
+baseurl,id,title,body
+https://jsonplaceholder.typicode.com,1,Testing API by Postman Automation,"To run a collection, open the Collection Runner window by clicking on the link in the navigation bar. Choose a collection from the drop down menu, and hit Start."
